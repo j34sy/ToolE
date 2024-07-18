@@ -4,7 +4,7 @@ A light-weight command line tool for simple tasks
 ## Cobra and Viper
 This CLI tool is utilizing SPF13's Go CLI Frameworks/ Libraries Cobra and Viper, as well as Cobra-CLI for easier setup
 
-More info about these tools can be found [https://go.dev/solutions/clis]here, [https://github.com/spf13/cobra]here and [https://github.com/spf13/viper]here.
+More info about these tools can be found [here](https://go.dev/solutions/clis), [here](https://github.com/spf13/cobra) and [here](https://github.com/spf13/viper).
 
 
 ## Key-Features
