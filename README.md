@@ -10,10 +10,15 @@ More info about these tools can be found [here](https://go.dev/solutions/clis), 
 ## Key-Features
 
 This CLI tool is designed to help you, work more fluently on the command-line.
+
 You need to create a small ToDo? - No Problem
+
 You want to remeber something? - Go ahead
+
 Or you need a subnet? - You'll get it quickly
+
 You need to do some maths? - I got you
+
 
 More features will be designed in the future.
 
