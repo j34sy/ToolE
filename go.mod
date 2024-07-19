@@ -4,6 +4,8 @@ go 1.22.1
 
 require github.com/spf13/viper v1.19.0
 
+require github.com/j34sy/SubnetCalculator v0.0.1 // indirect
+
 require (
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
