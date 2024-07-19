@@ -37,16 +37,16 @@ func checkInput(input []string) bool {
 	return false
 }
 
-func DecimalCalc(input []string) float64 {
+func DecimalCalc(input []string) string {
 	// actual calculation
 	if !checkInput(input) {
 		os.Exit(1)
 	}
-	result := recursiveCalc2(input)
-	return result
+	result := recursiveCalcDec(input)
+	return strconv.FormatFloat(result, 'f', 8, 64)
 }
 
-func recursiveCalc2(input []string) float64 {
+func recursiveCalcDec(input []string) float64 {
 	// catch ends
 	if len(input) == 1 {
 		val, err := strconv.ParseFloat(input[0], 64)
@@ -103,31 +103,31 @@ func recursiveCalc2(input []string) float64 {
 			fmt.Println("Invalid input: no operator found")
 			os.Exit(1)
 		}
-		return recursiveCalc2([]string{input[0]})
+		return recursiveCalcDec([]string{input[0]})
 	}
 
 	// Calculate the result of the operation
 	switch input[lowestIndex] {
 	case "+":
-		val := add(recursiveCalc2(input[:lowestIndex]), recursiveCalc2(input[lowestIndex+1:]))
+		val := add(recursiveCalcDec(input[:lowestIndex]), recursiveCalcDec(input[lowestIndex+1:]))
 		return val
 	case "-":
-		val := subtract(recursiveCalc2(input[:lowestIndex]), recursiveCalc2(input[lowestIndex+1:]))
+		val := subtract(recursiveCalcDec(input[:lowestIndex]), recursiveCalcDec(input[lowestIndex+1:]))
 		return val
 	case "*":
-		val := multiply(recursiveCalc2(input[:lowestIndex]), recursiveCalc2(input[lowestIndex+1:]))
+		val := multiply(recursiveCalcDec(input[:lowestIndex]), recursiveCalcDec(input[lowestIndex+1:]))
 		return val
 	case "/":
-		val := divide(recursiveCalc2(input[:lowestIndex]), recursiveCalc2(input[lowestIndex+1:]))
+		val := divide(recursiveCalcDec(input[:lowestIndex]), recursiveCalcDec(input[lowestIndex+1:]))
 		return val
 	case "%":
-		val := modulus(recursiveCalc2(input[:lowestIndex]), recursiveCalc2(input[lowestIndex+1:]))
+		val := modulus(recursiveCalcDec(input[:lowestIndex]), recursiveCalcDec(input[lowestIndex+1:]))
 		return val
 	case "^":
-		val := exponentiation(recursiveCalc2(input[:lowestIndex]), recursiveCalc2(input[lowestIndex+1:]))
+		val := exponentiation(recursiveCalcDec(input[:lowestIndex]), recursiveCalcDec(input[lowestIndex+1:]))
 		return val
 	case "|":
-		val := nthRoot(recursiveCalc2(input[:lowestIndex]), recursiveCalc2(input[lowestIndex+1:]))
+		val := nthRoot(recursiveCalcDec(input[:lowestIndex]), recursiveCalcDec(input[lowestIndex+1:]))
 		return val
 	}
 
