@@ -13,7 +13,7 @@ This CLI tool is designed to help you to work more fluently on the command-line.
 
 You need to create a small ToDo? - No Problem
 
-You want to remeber something? - Go ahead
+You want to remember something? - Go ahead
 
 Or you need a subnet? - You'll get it quickly
 
