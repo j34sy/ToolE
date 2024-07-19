@@ -19,6 +19,7 @@ var rootCmd = &cobra.Command{
 	Use:   "ToolE",
 	Short: "A collection of useful tools",
 	Long: `A list of tools that can be used to make your life easier:
+	- subnet: A Subnet Calculator for IPv4 
 	- todos: A simple todo list manager
 	- TBD`,
 	// Uncomment the following line if your bare application
