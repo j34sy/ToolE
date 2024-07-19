@@ -50,6 +50,9 @@ var calculateCmd = &cobra.Command{
 	- calculate 2+3
 	- calculate 2+(3*4)
 	- calculate --hexadecimal (a^3)+(8|3)
+
+	If you're shell does not accept HEX alphabetic characters, you can put the term in quotes like this:
+	calculate --hexadecimal "(a^3)+(8|3)"
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		decimal, _ := cmd.Flags().GetBool("decimal")
@@ -65,8 +68,6 @@ var calculateCmd = &cobra.Command{
 			}
 		}
 
-		input := splitCalculate(args[0])
-
 		if count > 1 {
 			fmt.Println("Only one flag is allowed")
 			os.Exit(1)
@@ -78,17 +79,21 @@ var calculateCmd = &cobra.Command{
 		}
 
 		if hexadecimal {
-			checkHex(input)
+			checkHex(args)
+			input := splitCalculate(args[0])
 			println(maths.HexCalc(input))
 
 		} else if octal {
-			checkOct(input)
+			checkOct(args)
+			input := splitCalculate(args[0])
 			println(maths.OctalCalc(input))
 		} else if binary {
-			checkBin(input)
+			checkBin(args)
+			input := splitCalculate(args[0])
 			println(maths.BinaryCalc(input))
 		} else {
-			checkDec(input)
+			checkDec(args)
+			input := splitCalculate(args[0])
 			println(maths.DecimalCalc(input))
 		}
 	},
@@ -145,7 +150,7 @@ var decimalDigits = []string{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
 var operatorsChars = []string{"+", "-", "*", "/", "%", "^", "|", "(", ")"}
 
 func splitCalculate(input string) []string {
-	re := regexp.MustCompile(`([^+\-*/%^|()]+)`)
+	re := regexp.MustCompile(`([a-fA-F0-9]+|[+\-*/%^|()])`)
 	parts := re.FindAllString(input, -1)
 	return parts
 }
