@@ -13,13 +13,31 @@ import (
 // calculateCmd represents the calculate command
 var calculateCmd = &cobra.Command{
 	Use:   "calculate",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Short: "Calculates a given term",
+	Long: `This commands calculates a given term.
+	You can specify the base of the numbers using the flags.
+	By default, the numbers are considered decimal.
+	Supported operations are:
+	- Addition (+)
+	- Subtraction (-)
+	- Multiplication (*)
+	- Division (/)
+	- Modulus (%)
+	- Exponentiation (^)
+	- nth Root (|)
+	- Factorial (!)
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Each operation is performed on two numbers, so you have to use paranthesis to group operations.
+	Example: calculate 2+3*4 is undefined, but calculate (2+3)*4 is 20 and calculate 2+(3*4) is 14.
+	You can also use the flags to specify the base of the numbers.
+	Available flags are:
+	- --decimal (-d)
+	- --hexadecimal (-h)
+	- --octal (-o)
+	- --binary (-b)
+
+	Example: calculate --hexadecimal (a^3) + (8|3) is 3EA
+	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("calculate called")
 
