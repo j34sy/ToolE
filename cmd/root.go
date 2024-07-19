@@ -66,6 +66,10 @@ func PrintToolE() {
 	fmt.Println("  +#+          +#+    +#+     +#+    +#+      +#+        +#+            ")
 	fmt.Println(" #+#          #+#    #+#     #+#    #+#      #+#        #+#             ")
 	fmt.Println("###           ########       ########       ########## ##########       ")
+	fmt.Println("")
+	fmt.Println("ToolE - A collection of useful tools")
+	fmt.Println("")
+	fmt.Println("Copyright © 2024 j34sy j34sy@proton")
 }
 
 func initConfig() {
