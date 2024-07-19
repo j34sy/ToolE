@@ -19,6 +19,7 @@ var rootCmd = &cobra.Command{
 	Use:   "ToolE",
 	Short: "A collection of useful tools",
 	Long: `A list of tools that can be used to make your life easier:
+	- todos: A simple todo list manager
 	- TBD`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
