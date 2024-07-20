@@ -34,6 +34,7 @@ var notesCmd = &cobra.Command{
 
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
+		checkNotesDir()
 		fmt.Println("notes called")
 	},
 }
@@ -55,8 +56,9 @@ func init() {
 func checkNotesDir() {
 	// Check if the notes directory exists
 	if !viper.IsSet("notesDir") {
+		fmt.Println("notesDir not set in config file")
 		viper.Set("notesDir", "notes")
-		fullPath := filepath.Join(viper.GetString("toolEDir"), viper.GetString("notesDir"))
+		fullPath := filepath.Join(viper.GetString("toolepath"), viper.GetString("notesDir"))
 		if _, err := os.Stat(fullPath); os.IsNotExist(err) {
 			err := os.Mkdir(fullPath, 0755)
 			if err != nil {
@@ -64,6 +66,7 @@ func checkNotesDir() {
 				os.Exit(1)
 			}
 		}
+		fmt.Println("notesDir set to default: notes and created if not existing")
 		return
 	}
 }

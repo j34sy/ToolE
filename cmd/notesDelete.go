@@ -21,6 +21,7 @@ var notesDeleteCmd = &cobra.Command{
 	ToolE notes delete 0
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
+		checkNotesDir()
 		fmt.Println("notesDelete called")
 	},
 }

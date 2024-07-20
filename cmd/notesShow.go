@@ -21,6 +21,7 @@ var notesShowCmd = &cobra.Command{
 	ToolE notes show 0
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
+		checkNotesDir()
 		fmt.Println("notesShow called")
 	},
 }

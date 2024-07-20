@@ -22,6 +22,7 @@ var notesAddCmd = &cobra.Command{
 	ToolE notes add emptynote
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
+		checkNotesDir()
 		fmt.Println("notesAdd called")
 	},
 }
